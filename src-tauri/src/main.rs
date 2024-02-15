@@ -4,34 +4,38 @@
 use std::path::{PathBuf, self};
 use std::process::Command;
 use std::env;
+use std::thread;
 
 
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn run_server(app_handle: tauri::AppHandle){
 
-    let path = path(app_handle);
+    let server_handle = thread::spawn(|| {
+        let path = path(app_handle);
 
-    // Specify the path to your PowerShell script
-    let script_path = path;
+        // Specify the path to your PowerShell script
+        let script_path = path;
+    
+            // Use Command to spawn a new PowerShell process
+            let status = Command::new("powershell")
+                .arg("-ExecutionPolicy")
+                .arg("Bypass") // Set the execution policy to Bypass
+                .arg("-WindowStyle")
+                .arg("Hidden") // Imposta lo stile della finestra su Hidden
+                .arg("-File")
+                .arg(&script_path) // Pass the script path as an argument
+                .status()
+                .expect("Failed to execute PowerShell script");
+    
+        // Check the exit status of the PowerShell process
+        if status.success() {
+            println!("PowerShell script executed successfully");
+        } else {
+            eprintln!("Error executing PowerShell script");
+        }
 
-        // Use Command to spawn a new PowerShell process
-        let status = Command::new("powershell")
-            .arg("-ExecutionPolicy")
-            .arg("Bypass") // Set the execution policy to Bypass
-            .arg("-WindowStyle")
-            .arg("Hidden") // Imposta lo stile della finestra su Hidden
-            .arg("-File")
-            .arg(&script_path) // Pass the script path as an argument
-            .status()
-            .expect("Failed to execute PowerShell script");
-
-    // Check the exit status of the PowerShell process
-    if status.success() {
-        println!("PowerShell script executed successfully");
-    } else {
-        eprintln!("Error executing PowerShell script");
-    }
+    });
 
 }
 

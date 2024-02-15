@@ -1,0 +1,159 @@
+:root {
+  --background: #1D2A3D;
+  --primary:#0C4F79;
+  --secondary: #A8DADC;
+  --tertiary: #E63946;
+}
+
+body,
+html {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color:var(--background);
+}
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+.app{
+
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  justify-content:center;
+}
+
+
+.div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-text{
+  
+  flex:1;
+
+  max-width: 30rem;
+
+  min-height: 6rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--primary);
+  border-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+.color-red{
+  border: solid;
+  border-color: var(--tertiary);
+}
+
+
+.classify-button{
+  flex:1;
+
+  outline: inherit;
+  border: solid;
+
+  font-weight: bold;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--primary);
+  border-color: transparent;
+  cursor: pointer;
+
+  max-width: 7rem;
+
+}
+
+.output-text{
+  flex:1;
+
+  max-width: 30rem;
+
+  min-height: 6rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--primary);
+  border-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+
+.result{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  border-radius: 1rem;
+  padding: 1rem;
+  max-width: 30rem;
+  
+}
+
+
+
+.classify-button:hover{
+  transition: all .2s ease-in-out;
+  transform:scale(1.1);
+
+  border-color: var(--tertiary);
+}
+
+
+
+.input-text::-webkit-scrollbar-track{
+	background-color: transparent;
+  border-radius: 10rem;
+  margin-left: 10rem;
+
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  
+}
+
+.input-text::-webkit-scrollbar{
+  width: 0.5rem;
+	background-color: transparent;
+  border-radius: 10rem;
+}
+
+.input-text::-webkit-scrollbar-thumb{
+	border-radius: 1rem;
+  background-color: var(--tertiary);
+  
+}
+
+.input-text::placeholder {
+  color: rgb(27, 28, 29);
+}

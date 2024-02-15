@@ -25,4 +25,6 @@ dist-ssr
 .vscode
 .vscode/*
 
+/target/
+target/
 

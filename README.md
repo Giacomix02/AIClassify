@@ -1,7 +1,22 @@
-# Tauri + Vanilla TS
+# AIClassify
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Typescript.
+![](public/AI.svg)
 
-## Recommended IDE Setup
+## Introduction
+The project presented aims to demonstrate the Machine Learning model *classification*.
+This presentation sees the assignment of Yahoo Answers topics to the input proposed to the AI.
+Finally, a CSP problem will be used to possibly filter the assignments made.
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+## Requirements
+- Python installed
+
+## Features
+- Classification of Yahoo Answers topics
+- In result you obtain the topic of the input with the probability of the result
+- You can filter by the probability of the result
+
+## installation
+Use the .exe or .msi in the release section
+
+## Screenshots
+![Screenshot](public/screen.png)

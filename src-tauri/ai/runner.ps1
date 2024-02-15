@@ -1,5 +1,3 @@
-
-
 # Check if 'python' is in the system path
 $pythonLocation = Get-Command python -ErrorAction SilentlyContinue
 

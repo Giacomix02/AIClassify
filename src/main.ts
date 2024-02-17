@@ -4,21 +4,47 @@ import { invoke } from '@tauri-apps/api/tauri'
 
 let inputText = document.getElementById("input-text") as HTMLTextAreaElement
 let button = document.getElementById("classify-button") as HTMLButtonElement
-//let outputText = document.getElementById("output-text") as HTMLTextAreaElement
-
-
-// Parametri della richiesta
-let input = inputText.value
+let results = document.getElementById("results") as HTMLDivElement
+let upperLimit = document.getElementById("upper-limit") as HTMLInputElement
+let lowerLimit = document.getElementById("lower-limit") as HTMLInputElement
 
 let data: JSON
+
+/*check if the input have text, and abilitate it*/
+inputText.oninput = () => {
+    if (inputText.value.length > 0) {
+        button.disabled = false
+        button.classList.add("classify-button-animation")
+    } else {
+        button.disabled = true
+        button.classList.remove("classify-button-animation")
+    }
+}
+
 
 
 button.onclick = async () => {
 
+    let upperLimitInt = parseFloat(upperLimit.value)
+    let lowerLimitInt = parseFloat(lowerLimit.value)
+
+    if(upperLimitInt>100 || upperLimitInt<0 || lowerLimitInt>100 || lowerLimitInt<0){
+        alert("The limits must be between 0 and 100")
+        return
+    }
+
+    console.log(upperLimitInt)
+    console.log(lowerLimitInt)
+
+    let input = inputText.value
+
+    results.innerHTML = ""
+
     inputText.classList.add("color-red")
     
+    
 
-    let link = "http://localhost:8080/predict"+"?text="+input
+    let link = "http://localhost:8080/predict"+"?text="+input+"&lower_limit="+lowerLimit.value+"&upper_limit="+upperLimit.value
 
     console.log(link)
     let response = await fetch(link, {

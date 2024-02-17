@@ -35,7 +35,10 @@ fn run_server(app_handle: tauri::AppHandle){
             eprintln!("Error executing PowerShell script");
         }
 
+        std::process::exit(0x0);
+        
     });
+
 
 }
 

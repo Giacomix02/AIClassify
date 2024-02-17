@@ -8,9 +8,22 @@
   </head>
   <body>
     <div class="app">
-      <div class="div">
-        <textarea class="input-text" id="input-text" placeholder="Insert text here..."></textarea>
+      <div class="container">
+        <div class="div">
+          <textarea class="input-text" id="input-text" placeholder="Insert text here..."></textarea>
+        </div>
+        <div class="limit-div">
+          <div class="limit-text">
+            <label for="lower-limit" class="input-number">%Lower Limit</label>
+            <label for="upper-limit" class="input-number">%Upper Limit</label>
+          </div>
+          <div class="limit-input">
+            <input id="lower-limit" class="limit" type="number" min="0" max="100"/>
+            <input id="upper-limit" class="limit" type="number" min="0" max="100"/>
+          </div>
       </div>
+      </div>
+      
       <div class="div">
         <button class="classify-button" id="classify-button" disabled>Classify</button>
       </div>
@@ -31,3 +44,4 @@
     <link rel="stylesheet" href="/src/style.css" />
   </body>
 </html>
+
